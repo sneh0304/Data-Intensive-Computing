@@ -133,7 +133,7 @@ def WCSS(Clusters):
         wcss = np.linalg.norm(cluster - x)
     return wcss
 
-def KNN(X_train,Y_train,X_test,Y_test,normalize = False):
+def KNN(X_train,Y_train,X_test,Y_test,norm = False):
     """
     :type X_train: numpy.ndarray
     :type X_test: numpy.ndarray
@@ -150,7 +150,7 @@ def KNN(X_train,Y_train,X_test,Y_test,normalize = False):
     if not isinstance(Y_test, np.ndarray):
         Y_test = np.array(Y_test)
         
-    if normalize:
+    if norm:
         X_train = normalize(X_train)
         X_test = normalize(X_test)
     
@@ -167,7 +167,7 @@ def KNN(X_train,Y_train,X_test,Y_test,normalize = False):
     print('KNN Accuracy: ' + str(Accuracy(Y_test, np.array(res))))
     return np.array(res)
     
-def RandomForest(X_train,Y_train,X_test,Y_test,normalize = False):
+def RandomForest(X_train,Y_train,X_test,Y_test,norm = False):
     """
     :type X_train: numpy.ndarray
     :type X_test: numpy.ndarray
@@ -184,7 +184,7 @@ def RandomForest(X_train,Y_train,X_test,Y_test,normalize = False):
     if not isinstance(Y_test, np.ndarray):
         Y_test = np.array(Y_test)
         
-    if normalize:
+    if norm:
         X_train = normalize(X_train)
         X_test = normalize(X_test)
     
@@ -227,7 +227,7 @@ def PCA(X_train,N):
     
     return np.dot(X_train, components.T)
     
-def Kmeans(X_train,N,normalize = False):
+def Kmeans(X_train,N,norm = False):
     """
     :type X_train: numpy.ndarray
     :type N: int
@@ -236,7 +236,7 @@ def Kmeans(X_train,N,normalize = False):
     if not isinstance(X_train, np.ndarray):
         X_train = np.array(X_train)
         
-    if normalize:
+    if norm:
         X_train = normalize(X_train)
     
     examples = X_train.shape[0]
@@ -349,7 +349,7 @@ def visualizeGridParams(svm_results, dt_results, knn_results):
     plt.savefig("grid_KNN.png")
     plt.show()
 
-def SklearnSupervisedLearning(X_train,Y_train,X_test,Y_test,normalize = False,gridSearch = False):
+def SklearnSupervisedLearning(X_train,Y_train,X_test,Y_test,norm = False,gridSearch = False):
     """
     :type X_train: numpy.ndarray
     :type X_test: numpy.ndarray
@@ -366,7 +366,7 @@ def SklearnSupervisedLearning(X_train,Y_train,X_test,Y_test,normalize = False,gr
     if not isinstance(Y_test, np.ndarray):
         Y_test = np.array(Y_test)
         
-    if normalize:
+    if norm:
         X_train = normalize(X_train)
         X_test = normalize(X_test)
     
@@ -411,7 +411,7 @@ def SklearnSupervisedLearning(X_train,Y_train,X_test,Y_test,normalize = False,gr
     visualizeCM(Y_test, res)
     return res
     
-def SklearnVotingClassifier(X_train,Y_train,X_test,Y_test,normalize = False):
+def SklearnVotingClassifier(X_train,Y_train,X_test,Y_test,norm = False):
     
     """
     :type X_train: numpy.ndarray
@@ -429,7 +429,7 @@ def SklearnVotingClassifier(X_train,Y_train,X_test,Y_test,normalize = False):
     if not isinstance(Y_test, np.ndarray):
         Y_test = np.array(Y_test)
     
-    if normalize:
+    if norm:
         X_train = normalize(X_train)
         X_test = normalize(X_test)
     
